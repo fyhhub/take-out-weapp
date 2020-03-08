@@ -1,0 +1,89 @@
+@import "../../assets/style/extends.scss";
+@import "../../assets/style/mixins.scss";
+
+.app {
+  padding: 20px 20px 0;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  &-location {
+    @extend .flex-center;
+    margin-bottom: 15px;
+    width: fit-content;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 600px;
+    white-space: nowrap;
+    text {
+      margin-right: 5px;
+      &:nth-child(2) {
+        color: rgba(0, 0, 0, 0.4);
+      }
+    }
+  }
+  &-return {
+    @extend .flex-center;
+    image {
+      margin-right: 10px;
+    }
+  }
+
+
+  &-content {
+    &-swiper {
+      height: 200px;
+      margin-top: 20px;
+      image {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &-grid {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      &_item {
+        flex-basis: 24%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+        color: #666;
+        image {
+          width: 50%;
+          height: 90px;
+        }
+        view {
+          text-align: center;
+          margin-top: 20px;
+          font-size: 25px;
+        }
+      }
+    }
+
+
+    &-business {
+      background-color: rgba(0, 0, 0, 0.03);
+      margin: 0 -20px;
+      padding: 5px 20px 20px;
+      width: 750px;
+      box-sizing: border-box;
+    }
+  }
+
+
+}
+
+
+.at-search-bar {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.at-tabs__header {
+  display: flex;
+  justify-content: flex-start;
+}
+.border-title {
+  margin-left: 0!important;
+}

@@ -1,0 +1,11 @@
+.business-detail {
+  &-line > .at-tabs__header {
+    width: 60%;
+    .at-tabs__item--active .at-tabs__item-underline {
+      width: 30%;
+      height: 6px;
+      left: 50%;
+      transform: translate(-50%);
+    }
+  }
+}

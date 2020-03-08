@@ -1,0 +1,12 @@
+.inputnumber {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  view {
+    margin: 0 15px;
+  }
+  image {
+    width: 40px;
+    height: 40px;
+  }
+}

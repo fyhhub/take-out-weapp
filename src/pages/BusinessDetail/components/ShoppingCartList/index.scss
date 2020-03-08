@@ -1,0 +1,23 @@
+.shopping-cartlist {
+  &-num {
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &-left {
+      font-size: 35px;
+    }
+
+    &-right {
+      color: #999;
+    }
+  }
+  .scrollview {
+    max-height: 500px;
+    min-height: 300px;
+    padding-bottom: 120px;
+  }
+}
+
+
+

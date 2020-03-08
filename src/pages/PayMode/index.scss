@@ -1,0 +1,82 @@
+.paymode {
+  width: 100%;
+  image {
+    margin-right: 20px;
+  }
+  .price-box {
+    background-color: #fff;
+    height: 265px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    color: #909399;
+
+    .price {
+      font-size: 50px;
+      color: #303133;
+      margin-top: 12px;
+      &:before {
+        content: "￥";
+        font-size: 40px;
+      }
+    }
+  }
+
+  .pay-type-list {
+    margin-top: 20px;
+    background-color: #fff;
+    padding-left: 60px;
+
+    .type-item {
+      height: 120px;
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-right: 60px;
+      font-size: 30px;
+      position: relative;
+    }
+
+    .icon {
+      width: 100px;
+      font-size: 52px;
+    }
+    .icon-erjiye-yucunkuan {
+      color: #fe8e2e;
+    }
+    .icon-weixinzhifu {
+      color: #36cb59;
+    }
+    .icon-alipay {
+      color: #01aaef;
+    }
+    .tit {
+      font-size: 32px;
+      color: #303133;
+      margin-bottom: 4px;
+    }
+    .con {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      font-size: 24px;
+      color: #909399;
+    }
+  }
+  .mix-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 630px;
+    height: 80px;
+    margin: 80px auto 30px;
+    font-size: 32px;
+    color: #fff;
+    background-color: #fa436a;
+    border-radius: 10px;
+    box-shadow: 1px 2px 5px rgba(219, 63, 96, 0.4);
+  }
+}

@@ -1,0 +1,71 @@
+page {
+  padding-bottom: 120px;
+}
+
+.address {
+  position: relative;
+  .list {
+    display: flex;
+    align-items: center;
+    padding: 20px 30px;
+    background: #fff;
+    position: relative;
+  }
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .address-box {
+    display: flex;
+    align-items: center;
+    .tag {
+      font-size: 24px;
+      color: #fa436a;
+      margin-right: 10px;
+      background: #fffafb;
+      border: 1px solid #ffb4c7;
+      border-radius: 4px;
+      padding: 4px 10px;
+      line-height: 1;
+    }
+    .address {
+      font-size: 30px;
+      color: #303133;
+    }
+  }
+  .u-box {
+    font-size: 28px;
+    color: #999;
+    margin-top: 16px;
+    .name {
+      margin-right: 30px;
+    }
+  }
+  .icon-bianji {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    font-size: 40px;
+    color: #909399;
+    padding-left: 30px;
+  }
+
+  .add-btn {
+    position: fixed;
+    left: 30px;
+    right: 30px;
+    bottom: 16px;
+    z-index: 95;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 690px;
+    height: 80px;
+    font-size: 32px;
+    color: #fff;
+    background-color: #fa436a;
+    border-radius: 10px;
+    box-shadow: 1px 2px 5px rgba(219, 63, 96, 0.4);
+  }
+}

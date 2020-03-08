@@ -1,0 +1,121 @@
+{
+	"miniprogramRoot": "dist/",
+	"projectname": "take-out-weapp",
+	"description": "毕业设计",
+	"appid": "wx00895a165cc93160",
+	"setting": {
+		"urlCheck": false,
+		"es6": false,
+		"postcss": false,
+		"minified": false,
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"compileType": "miniprogram",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "pages/Order/index",
+					"pathName": "pages/Order/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/My/index",
+					"pathName": "pages/My/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "pages/BusinessDetail/index",
+					"pathName": "pages/BusinessDetail/index",
+					"query": "id=45",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/BusinessDetail/index",
+					"pathName": "pages/BusinessDetail/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/Pay/index",
+					"pathName": "pages/Pay/index",
+					"query": "id=45",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/My/index",
+					"pathName": "pages/My/index",
+					"query": "id=45",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/Address/index",
+					"pathName": "pages/Address/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/AddressManager/index",
+					"pathName": "pages/AddressManager/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/PayMode/index",
+					"pathName": "pages/PayMode/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/Authorization/index",
+					"pathName": "pages/Authorization/index",
+					"scene": null
+				}
+			]
+		}
+	}
+}

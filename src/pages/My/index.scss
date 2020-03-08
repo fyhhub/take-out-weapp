@@ -1,0 +1,27 @@
+@import "~taro-ui/dist/style/components/icon.scss";
+.my {
+
+  &-info {
+    &-nologin {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 40px;
+      box-sizing: border-box;
+      &-left {
+        font-size: 60px;
+        font-weight: 600;
+        margin: 0;
+        background-color: #fff;
+      }
+
+      &-right {
+        image {
+          width: 150px;
+          height: 150px;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}

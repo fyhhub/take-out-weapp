@@ -1,0 +1,20 @@
+.business-info {
+  height: calc(100vh - 88px);
+  &-info {
+    padding: 24rpx;
+    &-title {
+      font-weight: 600;
+    }
+    .scrollview {
+      height: 150px;
+      margin-top: 20px;
+      width: 750px;
+      image {
+        width: 150px;
+        height: 150px;
+        margin-right: 20px;
+        display: inline-block;
+      }
+    }
+  }
+}

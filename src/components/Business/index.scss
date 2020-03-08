@@ -1,0 +1,86 @@
+@import "../../assets/style/common.scss";
+.business {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-top: 15px;
+  &-left {
+    flex-basis: 160px;
+    image {
+      width: 100%;
+      height: 100px;
+      border-radius: 10px;
+    }
+  }
+
+  &-right {
+    flex: 1;
+    padding-left: 15px;
+    box-sizing: border-box;
+    &-title {
+      font-weight: 600;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 450px;
+      white-space: nowrap;
+    }
+    &-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      view {
+        font-size: 23px;
+        margin-top: 5px;
+        color: #666;
+        &:nth-child(1) {
+          display: flex;
+          align-items: center;
+          view {
+            color: #F2CB51;
+          }
+          text {
+            margin-left: 15px;
+          }
+          image {
+            width: 25px;
+            height: 25px;
+          }
+        }
+        &:nth-child(2) {
+          text {
+            margin-left: 15px;
+          }
+        }
+      }
+    }
+
+
+    &-price {
+      display: flex;
+      align-items: center;
+      color: #666;
+      font-size: 23px;
+      margin-top: 10px;
+      &_item {
+        margin-right: 20px;
+      }
+    }
+
+
+    &-tag {
+      display: flex;
+      padding: 15px 0 0;
+      view {
+        font-size: 18px;
+        margin-right: 15px;
+        background-color: rgba(230, 0, 0, 0.1);
+        color: orangered;
+        padding: 5px;
+        box-sizing: border-box;
+      }
+    }
+  }
+}

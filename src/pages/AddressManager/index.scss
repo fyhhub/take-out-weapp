@@ -1,0 +1,53 @@
+page {
+  background: #f8f8f8;
+  padding-top: 16px;
+}
+.addressManager {
+  .row{
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding:0 30px;
+    height: 110px;
+    background: #fff;
+
+    .tit{
+      flex-shrink: 0;
+      width: 120px;
+      font-size: 30px;
+      color: #303133;
+    }
+    .input{
+      flex: 1;
+      font-size: 30px;
+      color: #303133;
+    }
+    .icon-shouhuodizhi{
+      font-size: 36px;
+      color: #909399;
+    }
+  }
+  .default-row {
+    margin-top: 16px;
+    .tit{
+      flex: 1;
+    }
+    switch {
+      transform: translateX(16px) scale(.9);
+    }
+  }
+  .add-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 690px;
+    height: 80px;
+    margin: 60px auto;
+    font-size: 32px;
+    color: #fff;
+    background-color: #fa436a;
+    border-radius: 10px;
+    box-shadow: 1px 2px 5px rgba(219, 63, 96, 0.4);
+  }
+
+}

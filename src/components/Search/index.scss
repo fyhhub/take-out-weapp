@@ -1,0 +1,43 @@
+@import "../../assets/style/extends.scss";
+@import "../../assets/style/common.scss";
+
+.search {
+  transition: opacity linear 0.1s;
+  padding-right: 20px;
+  box-sizing: border-box;
+  font-size: 14PX;
+  &-content {
+    &:first-child {
+      margin: 20px 0 60px;
+    }
+    &-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      view {
+        &:nth-child(2) {
+          display: flex;
+          align-items: center;
+          .iconImg {
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+    &-options {
+      display: flex;
+      flex-wrap: wrap;
+      &_item {
+        background-color: rgba(0,0,0,0.05);
+        color: rgba(0,0,0,0.8);
+        white-space: nowrap;
+        padding: 10px 15px;
+        margin-right: 20px;
+        margin-top: 15px;
+        cursor: pointer;
+        font-size: 25px;
+      }
+    }
+  }
+}
