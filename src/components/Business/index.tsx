@@ -1,4 +1,4 @@
-import Taro, { useEffect } from '@tarojs/taro'
+import Taro from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
 import starImg from '@/assets/images/star.png'
 import { BusinessModel } from '@/interfaces'
@@ -39,10 +39,6 @@ const Business = ({ data }: IProps) => {
           <View className='business-right-price_item'>
             人均 ¥17
           </View>
-        </View>
-        <View className='business-right-tag'>
-          <View>"味道很好，还送了火腿肠"</View>
-          <View>点分高分店铺</View>
         </View>
       </View>
     </View>

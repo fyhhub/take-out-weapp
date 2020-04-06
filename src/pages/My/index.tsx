@@ -1,14 +1,17 @@
-import Taro, { useEffect } from "@tarojs/taro";
-import { View, Button, Image } from "@tarojs/components";
+import Taro from "@tarojs/taro";
+import { View, Image } from "@tarojs/components";
 import { useSelector } from "@/store";
 import "./index.scss";
 import { AtList, AtListItem } from "taro-ui";
+import { useAuth } from "@/common";
 
 const My = () => {
+  useAuth()
   const userinfo = useSelector(state => state.user.userinfo);
   const toPage = (url) => {
     Taro.navigateTo({ url })
   }
+
   return (
     <View className="my">
       <View className="my-info">

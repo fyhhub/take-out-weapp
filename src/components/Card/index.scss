@@ -1,0 +1,28 @@
+.mcard {
+  background-color: #fff;
+  padding: 25px;
+  box-sizing: border-box;
+  border-radius: 2px;
+  &-title {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 15px 0;
+    box-sizing: border-box;
+    font-weight: 600;
+  }
+  &-item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 25px 0;
+    box-sizing: border-box;
+    &-key {
+
+    }
+
+    &-value {
+      color: #666;
+      font-size: 27px;
+      text-align: right;
+    }
+  }
+}

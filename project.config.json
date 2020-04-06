@@ -113,6 +113,21 @@
 					"id": -1,
 					"name": "pages/Authorization/index",
 					"pathName": "pages/Authorization/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 10,
+					"name": "pages/Assess/index",
+					"pathName": "pages/Assess/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/OrderDetail/index",
+					"pathName": "pages/OrderDetail/index",
+					"query": "",
 					"scene": null
 				}
 			]

@@ -3,7 +3,6 @@ import Taro, { Component, Config } from '@tarojs/taro'
 import { Provider } from '@tarojs/redux'
 import Index from './pages/App/index'
 import configStore from './store'
-import { setUserInfo } from '@/store/actions'
 import './app.scss'
 
 // 如果需要在 h5 环境中开启 React Devtools
@@ -33,7 +32,10 @@ class App extends Component {
       'pages/Address/index',
       'pages/AddressManager/index',
       'pages/PayMode/index',
-      'pages/Auth/index'
+      'pages/Auth/index',
+      'pages/Assess/index',
+      'pages/SearchList/index',
+      'pages/OrderDetail/index'
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -79,27 +81,13 @@ class App extends Component {
         "provider": "wx50b5593e81dd937a"
       },
       "chooseLocation": {
-        "version": "1.0.0",
+        "version": "1.0.2",
         "provider": "wx76a9a06e5b4e693e"
       }
     }
   }
 
-  async componentDidMount () {
-    const userinfo = Taro.getStorageSync('userInfo')
-    if (userinfo) {
-      Taro.checkSession({
-        success() {
-          store.dispatch(setUserInfo(JSON.parse(userinfo)))
-        },
-        fail: () => {
-          Taro.navigateTo({ url: '/pages/Auth/index' })
-        }
-      })
-    } else {
-      Taro.navigateTo({ url: '/pages/Auth/index' })
-    }
-  }
+  componentDidMount () {}
 
   componentDidShow () {}
 

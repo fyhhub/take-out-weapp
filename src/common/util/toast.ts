@@ -6,6 +6,7 @@ export function catchError(error: any) {
      (typeof error === 'string' ?
         error : JSON.stringify(error))
 
+  message = error.data && error.data.message
   Taro.showToast({
     title: message,
     icon: "none",

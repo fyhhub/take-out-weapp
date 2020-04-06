@@ -78,4 +78,4 @@ const MenuItem: Taro.FC<IProps> = ({ data }) => {
   )
 }
 
-export default memo(MenuItem)
+export default MenuItem

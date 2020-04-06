@@ -30,11 +30,11 @@ export const getBusinessList = () => async (dispatch: Dispatch) => {
     const elements = await getDistance(`${latitude},${longitude}`, to)
     const locationMap = elements.reduce((obj, e) => (obj[map[`${e.to.lat},${e.to.lng}`]] = e, obj), {})
     const dataMap = result.data.reduce((obj, item) => (obj[item.business_id] = item, obj), {})
-    dispatch(setPending(false))
     dispatch(setBusinessList({
       ...result,
       locationMap,
       dataMap
     }))
+    dispatch(setPending(false))
   }
 }

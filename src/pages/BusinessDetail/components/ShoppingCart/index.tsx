@@ -1,13 +1,15 @@
-import Taro, { useMemo, useRouter } from '@tarojs/taro'
+import Taro, { useMemo, useRouter, useCallback, useEffect } from '@tarojs/taro'
 import { View, Image, Text } from '@tarojs/components'
 import shopping2 from '@/assets/images/shopping2.png'
 import shopping1 from '@/assets/images/shopping1.png'
 import { useDispatch } from '@tarojs/redux'
 import { useSelector } from '@/store'
-import { setCartListShow } from '@/store/actions'
+import { setCartListShow, getAddressList } from '@/store/actions'
 import { AtBadge } from 'taro-ui'
 import { BusinessModel } from '@/interfaces'
+import { toPage } from '@/common'
 import './index.scss'
+import { createOrder } from '@/store/actions/order'
 interface IProps {
   business: BusinessModel.Business
 }
@@ -16,7 +18,8 @@ const ShoppingCart: Taro.FC<IProps> = ({ business }) => {
   const cartListShow = useSelector(state => state.cart.cartListShow)
   const cart = useSelector(state => state.cart.cart)
   const list = useSelector(state => state.goods.list)
-
+  const userinfo = useSelector(state => state.user.userinfo)
+  const addressList = useSelector(state => state.address.list)
   const selectNum = useMemo(() => {
     return Object.values(cart).filter(Boolean).reduce((a, b) => a + b, 0)
   }, [cart])
@@ -31,6 +34,14 @@ const ShoppingCart: Taro.FC<IProps> = ({ business }) => {
     })
    return [sum, disCountSum]
   }, [cart])
+
+  useEffect(() => {
+    if (addressList.length === 0) {
+      dispatch(getAddressList(userinfo.openid!))
+    }
+  }, [addressList.length, userinfo])
+
+
 
   return (
     <View className='shoppingcart'>
@@ -64,7 +75,7 @@ const ShoppingCart: Taro.FC<IProps> = ({ business }) => {
       <View className='shoppingcart-right'>
         {
           selectNum > 0 && prices[0] >= business.business_sd ?
-            <View className='shoppingcart-right-sum' onClick={() => Taro.navigateTo({ url: `/pages/Pay/index?business_id=${business.business_id}` })}>去结算</View> :
+            <View className='shoppingcart-right-sum' onClick={() => toPage(`/pages/Pay/index?id=${business.business_id}&total=${prices[1]}`)}>去结算</View> :
             <View className='shoppingcart-right-account'>差¥{ business.business_sd - prices[0] }起送</View>
         }
       </View>

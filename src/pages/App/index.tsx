@@ -1,11 +1,11 @@
 import Taro, { useState, useEffect, useCallback } from '@tarojs/taro'
 import { View, Text, Swiper, SwiperItem, Image } from '@tarojs/components'
-import { AtSearchBar } from 'taro-ui'
+import { AtSearchBar, AtActivityIndicator } from 'taro-ui'
 import { Search } from '@/components'
 import { useDispatch } from '@tarojs/redux'
 import { useSelector } from '@/store'
 import { getLocationAction, setLocation, getBusinessList } from '@/store/actions'
-import { check, catchError } from '@/common'
+import { check, catchError, useAuth } from '@/common'
 import { CommonModel } from '@/interfaces'
 import { ClTitleBar } from "mp-colorui"
 import BusinessList from './components/BusinessList'
@@ -13,19 +13,25 @@ import swiper1 from '@/assets/images/swiper1.jpg'
 import swiper2 from '@/assets/images/swiper2.jpg'
 import locationImg from '@/assets/images/location.png'
 import returnImg from '@/assets/images/return.png'
-
 import 'mp-colorui/dist/style/components/titleBar.scss'
+import { category } from '@/common/util/constants'
 import './index.scss'
+
 const App = () => {
+  useAuth()
   const [search, setSearch] = useState('')
   const [searchShow, setSearchShow] = useState(false)
   const dispatch = useDispatch()
   const address = useSelector(state => state.common.address)
   const list = useSelector(state => state.business.data)
+  const pending = useSelector(state => state.business.pending)
+  const defaultAddress = useSelector(state => state.address.default)
   useEffect(() => {
-    dispatch(getLocationAction())
-    dispatch(getBusinessList())
-  }, [])
+    if (defaultAddress) {
+      dispatch(getLocationAction())
+      dispatch(getBusinessList())
+    }
+  }, [defaultAddress])
 
   const chooseAddress = useCallback(async () => {
     try {
@@ -41,12 +47,35 @@ const App = () => {
     }
   }, [])
 
-
   const handleSearchClick = useCallback(() => {
-    console.log(search);
-
+    if (!search.trim()) return;
+    let searchHistory = Taro.getStorageSync('searchHistory')
+    if (searchHistory) {
+      searchHistory = JSON.parse(searchHistory)
+      if (!searchHistory.includes(search)) {
+        Taro.setStorageSync('searchHistory', JSON.stringify(searchHistory.concat(search)))
+      }
+    } else {
+      Taro.setStorageSync('searchHistory', JSON.stringify([search]))
+    }
+    Taro.navigateTo({
+      url: `/pages/SearchList/index?name=${search}`
+    })
   }, [search])
-  return (
+
+  const handleSearchChange = useCallback((val) => {
+    setSearch(val)
+  }, [])
+
+  const handleCategoryClick = useCallback((id) => {
+    Taro.navigateTo({
+      url: `/pages/SearchList/index?category=${id}`
+    })
+  }, [])
+
+  return pending || !address ? (
+    <AtActivityIndicator mode='center' content='加载中...'></AtActivityIndicator>
+  ) : (
     <View className='app'>
       {
         !searchShow ? <View onClick={chooseAddress} className='app-location'><Image src={locationImg} className='iconImg'/><Text>{address.address}</Text></View> : null
@@ -85,38 +114,14 @@ const App = () => {
             </Swiper>
 
             <View className='app-content-grid'>
-              <View className='app-content-grid_item'>
-                <Image src='https://fuss10.elemecdn.com/2/35/696aa5cf9820adada9b11a3d14bf5jpeg.jpeg'/>
-                <View>甜品饮品</View>
-              </View>
-              <View className='app-content-grid_item'>
-                <Image src='https://fuss10.elemecdn.com/0/da/f42235e6929a5cb0e7013115ce78djpeg.jpeg'/>
-                <View>商超便利</View>
-              </View>
-              <View className='app-content-grid_item'>
-                <Image src='https://fuss10.elemecdn.com/b/7e/d1890cf73ae6f2adb97caa39de7fcjpeg.jpeg'/>
-                <View>美食</View>
-              </View>
-              <View className='app-content-grid_item'>
-                <Image src='https://fuss10.elemecdn.com/d/38/7bddb07503aea4b711236348e2632jpeg.jpeg'/>
-                <View>简餐</View>
-              </View>
-              <View className='app-content-grid_item'>
-                <Image src='https://fuss10.elemecdn.com/a/fa/d41b04d520d445dc5de42dae9a384jpeg.jpeg'/>
-                <View>新店特惠</View>
-              </View>
-              <View className='app-content-grid_item'>
-                <Image src='https://fuss10.elemecdn.com/3/84/8e031bf7b3c036b4ec19edff16e46jpeg.jpeg'/>
-                <View>准时达</View>
-              </View>
-              <View className='app-content-grid_item'>
-                <Image src='https://fuss10.elemecdn.com/d/49/7757ff22e8ab28e7dfa5f7e2c2692jpeg.jpeg'/>
-                <View>预定早餐</View>
-              </View>
-              <View className='app-content-grid_item'>
-                <Image src='https://fuss10.elemecdn.com/e/7e/02b72b5e63c127d5bfae57b8e4ab1jpeg.jpeg'/>
-                <View>土豪推荐</View>
-              </View>
+              {
+                category.map(c => (
+                  <View className='app-content-grid_item' onClick={() => handleCategoryClick(c.id)}>
+                    <Image src={c.img}/>
+                    <View>{c.name}</View>
+                  </View>
+                ))
+              }
             </View>
             <ClTitleBar
               title='附近商家'
@@ -126,14 +131,12 @@ const App = () => {
               style={{ marginTop: '20rpx' }}
             />
             <View className='app-content-business'>
-              {
-                list.length > 0 ? <BusinessList list={list}/> : null
-              }
+              <BusinessList list={list}/>
             </View>
           </View>
         ) : null
       }
-      <Search show={searchShow}/>
+      <Search show={searchShow} onChange={handleSearchChange}/>
     </View>
   )
 }

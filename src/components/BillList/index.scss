@@ -1,3 +1,7 @@
 .billlist {
   padding: 15px;
+  [id^="swipeAction-"] {
+    margin-bottom: 20px!important;
+  }
 }
+

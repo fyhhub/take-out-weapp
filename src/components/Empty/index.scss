@@ -1,0 +1,16 @@
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  height: 100%;
+  width: 100%;
+  image {
+    margin-bottom: 15px;
+    width: 200px;
+    height: 200px;
+  }
+  view {
+    color: #999;
+  }
+}

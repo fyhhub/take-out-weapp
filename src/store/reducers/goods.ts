@@ -9,7 +9,7 @@ const reducer = reducerWithInitialState(INIT_STATE)
   .case(setGoodsList, (state, data) => ({
     ...state,
     list: {
-      ...data
+      ...JSON.parse(JSON.stringify(data))
     }
   }))
 export default reducer

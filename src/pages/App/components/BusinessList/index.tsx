@@ -7,7 +7,6 @@ interface IProps {
   list: BusinessModel.Business[]
 }
 const BusinessList: Taro.FC<IProps> = ({ list=[] }) => {
-
   return (
     <View className='businesslist'>
       {

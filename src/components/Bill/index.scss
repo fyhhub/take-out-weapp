@@ -8,9 +8,13 @@
     justify-content: space-between;
     align-items: center;
     font-size: 25px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding-bottom: 15px;
     &-show {
       width: 70px;
       height: 70px;
+      border-radius: 7px;
+      margin-right: 20px;
     }
 
     &-status {
@@ -25,50 +29,48 @@
 
   &-good {
     margin-top: 15px;
+    position: relative;
     &-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      &_show {
-        width: 150px;
-        image {
-          width: 150px;
-          height: 100px;
-          border-radius: 10px;
-        }
-        view {
-          overflow: hidden;
-          text-overflow: ellipsis;
-          width: 150px;
-          white-space: nowrap;
-          color: #666;
-          font-size: 25px;
-        }
-        &.onlyone {
-          display: flex;
-          align-items: center;
-          width: auto;
-          view {
-            margin-left: 15px;
-            width: 400px;
-          }
-        }
+      display: inline-block;
+      width: 170px;
+      margin-right: 15px;
+      image {
+        height: 130px;
+        width: 100%;
+        border-radius: 8px;
       }
-
-      &_price {
+      view {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        font-size: 27px;
+        color: #999;
+      }
+    }
+    &-price {
+      position: absolute;
+      right: 0;
+      top: -2px;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &-count {
         font-size: 25px;
-        view {
-          &:nth-child(2) {
-            color: #666;
-          }
-        }
+        color: #999;
+        margin-top: 10px;
       }
     }
   }
 
+
+
   &-btn {
     display: flex;
     justify-content: flex-end;
+    margin-top: 20px;
     .at-button {
       font-size: 25px!important;
     }

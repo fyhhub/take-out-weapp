@@ -3,9 +3,8 @@ import { View } from '@tarojs/components'
 import { AtTabs, AtTabsPane, AtActivityIndicator  } from 'taro-ui'
 import { useSelector } from '@/store'
 import { useDispatch } from '@tarojs/redux'
-import { useAsync, validate } from '@/common'
+import { useAsync, validate, useAuth } from '@/common'
 import { GoodsApi } from '@/api'
-import { Spin } from '@/components'
 import Menu from './components/Menu'
 import Evaluate from './components/Evaluate'
 import BusinessHeader from './components/BusinessHeader'
@@ -17,6 +16,7 @@ import 'mp-colorui/dist/style/components/loading.scss'
 import './index.scss'
 const tabList = [{ title: '点菜' }, { title: '评价' }, { title: '商家' }]
 const BusinessDetail = () => {
+  useAuth()
   const [currentTab, setCurrentTab] = useState(0)
   const router = useRouter()
   const dispatch = useDispatch()
@@ -24,9 +24,11 @@ const BusinessDetail = () => {
   const goods = useAsync(async () => {
     dispatch(clearCart())
     const res = await GoodsApi.list({ business_id: router.params.id })
-    validate(res)
-    return res.data.result
-  }, [router.params.id])
+    if (validate(res)) {
+      return res.data.result
+    }
+  }, [router.params])
+
   const business = dataMap[router.params.id]
 
 

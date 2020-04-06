@@ -40,7 +40,7 @@ const Menu: FC<IProps> = ({ data }) => {
             return (
               <AtTabsPane tabDirection='vertical' current={current} index={0}>
                 {
-                  List.map(item => <MenuItem data={item}/>)
+                  List.map(item => <MenuItem data={item} key={item.goods_id}/>)
                 }
                 <View style={{ height: '80rpx' }}></View>
               </AtTabsPane>

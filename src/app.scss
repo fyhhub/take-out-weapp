@@ -1,5 +1,9 @@
 @import "./assets/font/iconfont.scss";
 @import "./assets/style/common.scss";
-$color-brand: #71E2BD;
+
+:root {
+  --theme-color: #71E2BD;
+}
+$color-brand: #71E2BD!default;
 @import "~taro-ui/dist/style/index.scss";
 
